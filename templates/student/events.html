@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% extends 'k_base.html' %}
+
+{% block body %}
+
+    {% if messages  %}
+
+    {% for message in messages %}
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+    {% endfor %}
+
+
+{% endif %}
+<div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events</h4>
+                  <p class="card-category"> Manage Events From Here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Event Image
+                        </th>
+                        <th>
+                          Event Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                          <th>
+                            Event Type
+                        </th>
+                          <th>
+                            Date
+                        </th>
+                          <th>
+                            Time
+                        </th>
+                          <th>
+                            Participate
+                        </th>
+                          <th>
+                            Volunteer
+                        </th>
+                          <th>
+                            Details
+                        </th>
+
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in events %}
+                        <tr>
+                          <td>
+                            {{ forloop.counter }}
+                          </td>
+                          <td>
+                            <img src="{{ i.Event_Banner.url }}" width="80px" height="50px">
+                          </td>
+                          <td>
+                            {{ i.Event_Name }}
+                          </td>
+                          <td>
+                            {{ i.Event_Description }}
+                          </td>
+                             <td>
+                            {{ i.Event_Type }}
+                          </td>
+                        <td>
+                            {{ i.Event_Date }}
+                          </td>
+                        <td>
+                            {{ i.Event_Time }}
+                          </td>
+                        <td>
+                            <a href="{% url 'student:participate' i.id %}" class="btn btn-success" data-original-title="" title="">
+
+                            participate</a>
+                          </td>
+                         <td>
+                            <a href="{% url 'student:volunteer' i.id %}" class="btn btn-success" data-original-title="" title="">
+
+                            Volunteer</a>
+                          </td>
+                            <td >
+                            <a href="{% url 'student:event_details' i.id %}" class="btn btn-success">
+                            See Details
+                            </a>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'c_base.html' %}
+
+{% block body %}
+<div class="card bg-white ">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Add Past Event</h4>
+        <p class="card-category"> Add Past Event From Here</p>
+    </div><br>
+        <div class="card-body">
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Event Name:</label>
+            {{ postForm.Event_Name }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Description:</label>
+            {{ postForm.Description }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Place:</label>
+            {{ postForm.Place }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label">Date And Time:</label><br>
+            {{ postForm.DateAndTime }}
+        </div>
+    </div>
+
+            <label class="bmd-label">Event Video:</label>
+            {{ postForm.video }}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+    <center><button class="btn btn-success" type="submit">submit</button></center>
+</form>
+        </div>
+    </div>
+{% endblock %}

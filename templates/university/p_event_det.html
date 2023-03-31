@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'uni_base.html' %}
+
+{% block body %}
+<div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events Images</h4>
+
+                </div>
+                <div class="card-body">
+                  <div class="row text-center text-lg-left">
+                      {% for i in im %}
+
+                    <div class="col-lg-6 col-md-6 col-6">
+                      <a href="#" class="d-block mb-4 h-100">
+                            <img class="img-fluid img-thumbnail" src="{{ i.image.url }}" alt="">
+                          </a>
+                    </div>
+                      {% endfor %}
+                  </div>
+
+                </div>
+              </div>
+
+
+<div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events video</h4>
+
+                </div>
+                <div class="card-body">
+                  <div class="row text-center text-lg-left">
+
+
+                    <div class="col-lg-6 col-md-6 col-6">
+                      <a href="#" class="d-block mb-4 h-100">
+                          {% if e_list.video %}
+                            <video width="500" height="500" controls>
+                              <source src="{{ e_list.video.url }}" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                            </video>
+                          {% endif %}
+                          </a>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+</div>
+{% endblock %}

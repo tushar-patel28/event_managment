@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% extends 'c_base.html' %}
+
+{% block body %}
+<div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events</h4>
+                  <p class="card-category"> Manage Events From Here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Event Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                          <th>
+                            Date
+                        </th>
+                          <th>
+                            Time
+                        </th>
+                          <th>
+                            Place
+                        </th>
+
+                          <th>
+                            Details
+                        </th>
+
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in e_list %}
+                        <tr>
+                          <td>
+                            {{ forloop.counter }}
+                          </td>
+
+                          <td>
+                            {{ i.Event_Name }}
+                          </td>
+                          <td>
+                            {{ i.Description }}
+                          </td>
+                        <td>
+                            {{ i.DateAndTime.date }}
+                          </td>
+                        <td>
+                            {{ i.DateAndTime.time }}
+                          </td>
+                        <td>
+                            {{ i.Place }}
+                          </td>
+
+                            <td >
+                            <a href="{% url 'university:p_det' i.id %}" class="btn btn-success">
+                            See Details
+                            </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

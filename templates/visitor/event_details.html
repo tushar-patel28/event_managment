@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% extends 'v_base.html' %}
+
+{% block body %}
+<div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events</h4>
+                  <p class="card-category"> Manage Events From Here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                      <tr>
+
+                        <th>
+                          Event Image
+                        </th>
+                        <th>
+                          Event Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                          <th>
+                            Date
+                        </th>
+                          <th>
+                            Time
+                        </th>
+                          <th>
+                            Actions
+                        </th>
+
+
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr>
+
+                          <td>
+                            <img src="{{ events.Event_Banner.url }}" width="80px" height="50px">
+                          </td>
+                          <td>
+                            {{ events.Event_Name }}
+                          </td>
+                          <td>
+                            {{ events.Event_Description }}
+                          </td>
+                        <td>
+                            {{ events.Event_Date }}
+                          </td>
+                        <td>
+                            {{ events.Event_Time }}
+                          </td>
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+    <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Speakers</h4>
+                  <p class="card-category"> Manage Speakers From Here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                          <th>
+                            Mobile No
+                        </th>
+                          <th>
+                            Gender
+                        </th>
+                          <th>
+                            Description
+                        </th>
+
+
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in speaker %}
+                        <tr>
+                          <td>
+                            {{ forloop.counter }}
+                          </td>
+
+                          <td>
+                            {{ i.Name }}
+                          </td>
+                          <td>
+                            {{ i.Email }}
+                          </td>
+                        <td>
+                            {{ i.mobile_no }}
+                          </td>
+                        <td>
+                            {{ i.Gender }}
+                          </td>
+                        <td>
+                            {{ i.description }}
+                          </td>
+
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

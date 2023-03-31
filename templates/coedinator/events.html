@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'c_base.html' %}
+
+{% block body %}
+<div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Events</h4>
+                  <p class="card-category"> Manage Events From Here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Event Image
+                        </th>
+                        <th>
+                          Event Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                          <th>
+                            Event Type
+                        </th>
+                          <th>
+                            Date
+                        </th>
+                          <th>
+                            Time
+                        </th>
+                          <th>
+                            Actions
+                        </th>
+                          <th>
+                            Details
+                        </th>
+
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in events %}
+                        <tr>
+                          <td>
+                            {{ forloop.counter }}
+                          </td>
+                          <td>
+                            <img src="{{ i.Event_Banner.url }}" width="80px" height="50px">
+                          </td>
+                          <td>
+                            {{ i.Event_Name }}
+                          </td>
+                          <td>
+                            {{ i.Event_Description }}
+                          </td>
+                            <td>
+                            {{ i.Event_Type }}
+                          </td>
+                        <td>
+                            {{ i.Event_Date }}
+                          </td>
+                        <td>
+                            {{ i.Event_Time }}
+                          </td>
+                        <td class="td-actions">
+                            <a href="{% url 'coedinator:event_edit' i.id %}" class="btn btn-success" data-original-title="" title="">
+                                <i class="material-icons">edit</i>
+                            <div class="ripple-container"></div></a>
+
+                            <a href="{% url 'coedinator:delete_event' i.id %}" class="btn btn-danger" data-original-title="" title="">
+                                <i class="material-icons">close</i>
+                            </a>
+                        </td>
+                        <td >
+                            <a href="{% url 'coedinator:event_details' i.id %}" class="btn btn-success">
+                            See Details
+                            </a>
+
+
+                        </td>
+
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}

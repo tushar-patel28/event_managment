@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'c_base.html' %}
+
+{% block body %}
+<div class="card bg-white ">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Add Events</h4>
+        <p class="card-category"> Add Events From Here</p>
+    </div><br>
+        <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Event Name:</label>
+            {{ form.Event_Name }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Description:</label>
+            {{ form.Event_Description }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Event Type:</label>
+            {{ form.Event_Type }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="">Date:</label>
+            {{ form.Event_Date }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="">Time:</label>
+            {{ form.Event_Time }}
+        </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="">Allowed Visitors:</label>
+          {{ form.for_visitors }}
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form">
+            <label class="bmd-label-floating">Add Profile Photo</label>
+            <input type="file" class="form-control" value="{{ form.Event_Banner }}">
+        </div>
+    </div>
+
+    <center><button class="btn btn-success" type="submit">submit</button></center>
+</form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends 'k_base.html' %}
+
+{% block body %}
+<div class="card bg-white ">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Participant</h4>
+        <p class="card-category">Participant From Here</p>
+    </div><br>
+        <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Name:</label>
+            {{ form.Name }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Email:</label>
+            {{ form.Email }}
+        </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="">Mobile Number</label>
+          {{ form.mobile_no }}
+
+      </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="">Institute:</label>
+            {{ form.Institute }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="">Field:</label>
+            {{ form.field }}
+        </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="">Semester:</label>
+          {{ form.semester }}
+
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="">Gender:</label>
+          {{ form.Gender }}
+
+      </div>
+    </div>
+
+
+
+
+    <center><button class="btn btn-success" type="submit">submit</button></center>
+</form>
+        </div>
+    </div>
+{% endblock %}

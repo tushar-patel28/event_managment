@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% extends 'uni_base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block body %}
+    {% if messages and order_det.table_no.rest_id == user.user_id %}
+
+    {% for message in messages %}
+        {% if message.tags == 'warning' %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endif %}
+    <div class="card bg-white ">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Add Visitor</h4>
+        <p class="card-category"> Add Visitor From Here</p>
+    </div><br>
+        <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Username:</label>
+            {{ form_p.username }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">First Name:</label>
+            {{ form_p.first_name }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Last Name:</label>
+            {{ form_p.last_name }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">E Mail:</label>
+            {{ form_p.email}}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Password:</label>
+            {{ form_p.password }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Confirm Password:</label>
+            {{ form_p.Confirm_Password }}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Field:</label>
+            {{ form.field }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Semester:</label>
+            {{ form.semester }}
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Mobile Number:</label>
+            {{ form.mobile_no }}
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="bmd-label-floating">Gender:</label>
+            {{ form.gender }}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form">
+            <label class="bmd-label-floating">Add Profile Photo</label>
+            <input type="file" class="form-control" value="{{ form.profile_photo }}">
+        </div>
+    </div>
+
+
+    <center><button class="btn btn-success" type="submit">submit</button></center>
+</form>
+        </div>
+    </div>
+{% endblock %}
